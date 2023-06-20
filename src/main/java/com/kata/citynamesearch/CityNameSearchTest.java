@@ -12,12 +12,26 @@ import org.junit.Test;
  *
  */
 public class CityNameSearchTest {
-	
-	@Test
-    public void testSearchWithLessThanTwoChars() {
-        CityNameSearch cityNameSearch = new CityNameSearch();
-        List<String> result = cityNameSearch.search("a");
-        assertEquals(Arrays.asList(), result);
 
-}
+	@Test
+	public void testSearchWithLessThanTwoChars() {
+		CityNameSearch cityNameSearch = new CityNameSearch();
+		List<String> result = cityNameSearch.search("a");
+		assertEquals(Arrays.asList(), result);
+
+	}
+
+	@Test
+	public void testSearchWithThreeChars() {
+		CityNameSearch cityNameSearch = new CityNameSearch();
+		List<String> result = cityNameSearch.search("bud");
+		assertEquals(Arrays.asList("Budapest"), result);
+	}
+
+	@Test
+	public void testSearchCaseInsensitive() {
+		CityNameSearch cityNameSearch = new CityNameSearch();
+		List<String> result = cityNameSearch.search("SYD");
+		assertEquals(Arrays.asList("Sydney"), result);
+	}
 }
