@@ -34,6 +34,11 @@ public class CityNameSearch {
 		if (searchText.length() < 2) {
 			return new ArrayList<>();
 		}
+
+		if (searchText.equals("*")) {
+			return new ArrayList<>(cities);
+		}
+
 		return cities.stream().filter(city -> city.toLowerCase().contains(searchText.toLowerCase()))
 				.collect(Collectors.toList());
 	}
