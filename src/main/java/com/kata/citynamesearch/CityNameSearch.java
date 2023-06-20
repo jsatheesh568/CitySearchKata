@@ -33,7 +33,10 @@ public class CityNameSearch {
 	}
 
 	public List<String> search(String searchText) {
-		return cities;
+		if (searchText.length() < 2) {
+			return new ArrayList<>();
+		}
+			return cities;
 	}
 
 }
